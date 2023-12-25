@@ -14,9 +14,9 @@ import { Theme } from "@emotion/react";
 
 const useStyles = makeStyles((theme: Theme) => ({
   frame: {
-    width: "100wv",
+    width: "100vw",
     position: "relative",
-    height: "50vH",
+    height: "50vh",
     top: "10%",
   },
 

@@ -18,17 +18,18 @@ export const HomePage = () => {
       <NavBar />
       <Box
         sx={{
-          width: "100vW",
+          width: "1728px",
           height: "100vH",
           paddingTop: "251px",
           paddingBottom: "0px",
           marginBottom: "0px",
+          flexShrink: 0,
         }}
       >
         <Box
           sx={{
             justifyContent: "top",
-            display: "flex",
+            display: "inline-flex",
             flexDirection: "column",
             marginTop: "0px",
             textAlign: "center",
@@ -38,7 +39,7 @@ export const HomePage = () => {
             sx={{
               fontFamily: "Lato",
               fontSize: "64px",
-              fontWeight: "800",
+              fontWeight: 800,
               lineHeight: "42px",
               letterSpacing: "0px",
               textAlign: "center",
@@ -48,7 +49,7 @@ export const HomePage = () => {
           </Typography>
           <Box
             sx={{
-              paddingTop: "30px",
+              paddingTop: "32px",
             }}
           >
             <Typography
@@ -69,7 +70,10 @@ export const HomePage = () => {
           sx={{
             // display: "flex",
             // flexDirection: "row",
-            height: "100%",
+            height: "20px",
+            width: { xs: "0", sm: "100%" },
+            position: "",
+            alignItems: "center",
           }}
         >
           <Carousel1 carouselImages={carouselImages} />
