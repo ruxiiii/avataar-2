@@ -7,6 +7,7 @@ import {
   Autocomplete,
   TextField,
   Box,
+  Container,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
@@ -16,14 +17,16 @@ export const HomePage = () => {
   return (
     <div>
       <NavBar />
-      <Box
+      <Container
         sx={{
-          width: "1728px",
+          width: window.innerWidth,
           height: "100vH",
-          paddingTop: "251px",
+          paddingTop: "190px",
           paddingBottom: "0px",
-          marginBottom: "0px",
-          flexShrink: 0,
+          //marginBottom: "0px",
+          //flexShrink: 0,
+          justifyContent: "center",
+          margin: "auto",
         }}
       >
         <Box
@@ -70,15 +73,16 @@ export const HomePage = () => {
           sx={{
             // display: "flex",
             // flexDirection: "row",
-            height: "20px",
+            // height: "20px",
             width: { xs: "0", sm: "100%" },
             position: "",
             alignItems: "center",
+            paddingTop: "25px",
           }}
         >
           <Carousel1 carouselImages={carouselImages} />
         </Box>
-      </Box>
+      </Container>
     </div>
   );
 };

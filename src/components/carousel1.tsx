@@ -11,10 +11,11 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 import { useEffect, useState } from "react";
 import { Theme } from "@emotion/react";
+import DotIndictaor from "./dot/dotIndicator";
 
 const useStyles = makeStyles((theme: Theme) => ({
   frame: {
-    width: "100vw",
+    width: "100%",
     position: "relative",
     height: "50vh",
     top: "10%",
@@ -44,15 +45,24 @@ const useStyles = makeStyles((theme: Theme) => ({
 
   container: {
     display: "flex",
-    width: "2080px",
+    width: "100%",
+    transition: "transform 2000ms ease-in-out",
   },
 
   image: {
     borderRadius: "8px",
     gap: "4px",
-    width: "600px",
+    width: "220px",
+    objectFit: "cover",
   },
-  hoverImage: {},
+
+  hoverImage: {
+    "&:hover": {
+      transform: "scale(1.1)",
+      transition: "easeout 400ms ease-in-out",
+      zIndex: "6",
+    },
+  },
 
   nonActiveOpacity: {
     opacity: 1,
@@ -66,10 +76,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: "320px",
     // width: "50px",
     borderRadius: "8px",
-    transform: "scale(1.2)",
+    transform: "scale(1.3)",
     marginRight: "-28px",
     marginLeft: "-28px",
-    zIndex: "5",
+    zIndex: "10",
     objectFit: "cover",
     cursor: "pointer",
     alignSelf: "stretch",
@@ -78,16 +88,18 @@ const useStyles = makeStyles((theme: Theme) => ({
   imageText: {},
 
   nearImages: {
-    width: "500px",
+    //width: "500px",
     height: "280px",
-    zIndex: "4",
+    zIndex: "7",
     marginTop: "20px",
-    marginRight: "-15px",
-    // flexShrink: 0,
+    //marginRight: "-15px",
+    //flexShrink: "0",
+    display: "block",
+    borderRadius: "25px",
   },
 
   farImages: {
-    width: "400px",
+    //width: "400px",
     height: "200px",
     zIndex: "1",
     marginTop: "60px",
@@ -175,37 +187,48 @@ export const Carousel1: React.FC<CarouselProps> = ({ carouselImages }) => {
             <div key={index} className={classes.container}>
               {index === currentIndex && (
                 <>
-                  {[...Array(5).keys()].map((i) => (
-                    <div
-                      key={i}
-                      className={`${classes.image} ${classes.hoverImage}`}
-                    >
-                      <img
-                        src={
-                          carouselImages[(length + index - 2 + i) % length].img
-                        }
-                        alt={`Image ${(length + index - 2 + i) % length}`}
-                        onClick={() =>
-                          setCurrentIndex((length + index - 2 + i) % length)
-                        }
-                        className={`${classes.image} ${
-                          i === 2
-                            ? classes.activeOpacity
-                            : i % 2 === 0
-                            ? classes.nonActiveOpacity + " " + classes.farImages
-                            : classes.nonActiveOpacity +
-                              " " +
-                              classes.nearImages
-                        }`}
-                      />
-                      <div className={classes.imageText}>
-                        {
-                          carouselImages[(length + index - 2 + i) % length]
-                            .title
-                        }
+                  {[...Array(5).keys()].map((i) => {
+                    const leftSide = i === 0 || i === 1;
+                    const rightSide = i === 3 || i == 4;
+                    const marginLeft = rightSide ? "-4%" : 0;
+                    const marginRight = leftSide ? "-4%" : 0;
+
+                    return (
+                      <div
+                        key={i}
+                        className={`${classes.image} ${classes.hoverImage}`}
+                        style={{ marginLeft, marginRight }}
+                      >
+                        <img
+                          src={
+                            carouselImages[(length + index - 2 + i) % length]
+                              .img
+                          }
+                          alt={`Image ${(length + index - 2 + i) % length}`}
+                          onClick={() =>
+                            setCurrentIndex((length + index - 2 + i) % length)
+                          }
+                          className={`${classes.image} ${
+                            i === 2
+                              ? classes.activeOpacity
+                              : i % 2 === 0
+                              ? classes.nonActiveOpacity +
+                                " " +
+                                classes.farImages
+                              : classes.nonActiveOpacity +
+                                " " +
+                                classes.nearImages
+                          }`}
+                        />
+                        <div className={classes.imageText}>
+                          {
+                            carouselImages[(length + index - 2 + i) % length]
+                              .title
+                          }
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </>
               )}
             </div>
@@ -213,6 +236,8 @@ export const Carousel1: React.FC<CarouselProps> = ({ carouselImages }) => {
         ))}
         {/* </div> */}
       </div>
+      {/* 
+      <DotIndictaor /> */}
     </div>
   );
 };

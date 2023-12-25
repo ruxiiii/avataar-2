@@ -150,7 +150,7 @@ export const NavBar = () => {
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
-                justifyContent: "end",
+                justifyContent: "space-between",
                 paddingLeft: "80px",
                 gap: "20px",
                 // flexWrap: "nowrap",
@@ -190,7 +190,7 @@ export const NavBar = () => {
                   alignItems: "center",
                   width: { xs: "0", sm: "300px" },
                   //height: "20px",
-                  //padding: "12px, 0px, 12px, 0px",
+                  padding: "12px, 0px, 12px, 0px",
 
                   backgroundColor: "transaprent",
 
