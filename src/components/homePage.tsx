@@ -19,14 +19,18 @@ export const HomePage = () => {
       <NavBar />
       <Container
         sx={{
-          width: window.innerWidth,
+          "& .MuiContaine-root": { paddingLeft: 0, paddingRight: 0 },
+          width: "1300px",
           height: "100vH",
-          paddingTop: "190px",
+          paddingTop: "123px",
           paddingBottom: "0px",
-          //marginBottom: "0px",
+          //marginBottom: "0px
           //flexShrink: 0,
           justifyContent: "center",
           margin: "auto",
+          "@media (min-width: 1200px)": {
+            maxWidth: "1400px",
+          },
         }}
       >
         <Box
@@ -77,7 +81,8 @@ export const HomePage = () => {
             width: { xs: "0", sm: "100%" },
             position: "",
             alignItems: "center",
-            paddingTop: "25px",
+            paddingTop: "20px",
+            marginBottom: "5px",
           }}
         >
           <Carousel1 carouselImages={carouselImages} />

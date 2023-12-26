@@ -47,12 +47,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     width: "100%",
     transition: "transform 2000ms ease-in-out",
+    "& .MuiContainer-root": { paddingRight: "0px", paddingLeft: "0px" },
   },
 
   image: {
     borderRadius: "8px",
     gap: "4px",
-    width: "220px",
+    width: "320px",
     objectFit: "cover",
   },
 

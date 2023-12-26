@@ -80,7 +80,7 @@ export const NavBar = () => {
           <Box
             sx={{
               display: "flex",
-              justifyContent: "flex-start",
+              justifyContent: "end",
             }}
           >
             <Box
@@ -146,7 +146,7 @@ export const NavBar = () => {
 
             <Box
               sx={{
-                width: "75%",
+                width: "90%",
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
